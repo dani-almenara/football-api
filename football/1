@@ -1,0 +1,30 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import requests
+import json
+from datetime import datetime
+from datetime import timedelta
+import time
+from decouple import config
+
+'''
+def obtener_datos():
+        url = "http://api.football-data.org/v3/competitions/PD/teams"
+        headers = {"X-Auth-Token":config("TOKEN_FOOTBALL"),}
+        respuesta = requests.get(url, headers=headers)
+        if respuesta.status_code == 200:
+                respuesta_json = response.json() #diccionario
+                origin = response_json['name']
+                return mensaje
+
+'''
+
+url = "http://api.football-data.org/v3/competitions/PD/teams"
+headers = {"X-Auth-Token":config("TOKEN_FOOTBALL"),}
+response = requests.get(url, headers=headers)
+#response_status = response['shortName']
+#print(response)
+y = json.loads(response)
+
+print(y)
